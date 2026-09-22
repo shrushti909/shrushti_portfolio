@@ -1,0 +1,76 @@
+.about__header {
+  margin-bottom: var(--space-10);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.about__bio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.about__para {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* ── Focus Card ── */
+.about__focus {
+  position: sticky;
+  top: calc(var(--navbar-height) + var(--space-6));
+}
+
+.about__focus-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+}
+
+.about__focus-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.about__focus-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.about__focus-item:hover {
+  color: var(--color-accent);
+}
+
+.about__focus-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__focus {
+    position: static;
+  }
+}
