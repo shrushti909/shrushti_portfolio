@@ -44,7 +44,7 @@ export default function About({ data }) {
     >
       <div className="container">
         {/* Section Header */}
-        <div className="section-header reveal">
+        <div className="section-header about__header reveal">
           <span className="section-label">ABOUT ME</span>
           <h2 className="section-title" id="about-title">
             Who I Am
@@ -61,24 +61,7 @@ export default function About({ data }) {
           <div className="about__left reveal">
             <div className="about__narrative">
               <p className="about__para">
-                I am an MCA student at Vishwakarma University, Pune, and an
-                Immediate Joiner with practical experience developing backend and
-                full-stack web applications using Python, Django, Django REST
-                Framework, and MySQL.
-              </p>
-              <p className="about__para">
-                During my 6-month Engineer Trainee internship at RapportSoft
-                Consulting &amp; Technology Pvt. Ltd., I collaborated with
-                senior engineers on <em>PartyConnect</em> (an EYMS clone),
-                writing modular backend features and relational database logic
-                with Java, JSP, JDBC, and SQL within an enterprise development
-                lifecycle.
-              </p>
-              <p className="about__para">
-                Whether creating a full-stack food delivery system (FoodDash) or
-                engineering role-based hiring portals (Jobify), I prioritize clean
-                object-oriented design, robust data relationships, and intuitive
-                interfaces.
+                MCA student at Vishwakarma University, Pune, and an Immediate Joiner specializing in backend engineering with Python, Django, DRF, and MySQL. Experienced in building full-stack web applications and completing a 6-month enterprise Java internship at RapportSoft with a passion for clean architecture, scalable APIs, and robust database design.
               </p>
             </div>
 

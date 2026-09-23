@@ -127,35 +127,39 @@ export default function Hero({ data }) {
         {/* Right Column (Desktop Visual Identity Card) */}
         <div className="hero__card-col">
           <div className="hero__id-card">
-            <div className="hero__id-card-header">
-              <div className="hero__id-avatar">
-                <img
-                  src={profileImg}
-                  alt="Shrushti Manohar Nandgaonkar"
-                  className="hero__avatar-img"
-                />
-              </div>
+            {/* Top Half Image Banner */}
+            <div className="hero__id-banner">
+              <img
+                src={profileImg}
+                alt="Shrushti Manohar Nandgaonkar"
+                className="hero__id-banner-img"
+              />
+              <div className="hero__id-banner-fade" aria-hidden="true" />
+            </div>
+
+            {/* Card Body */}
+            <div className="hero__id-content">
               <div className="hero__id-person">
                 <h3 className="hero__id-name">Shrushti M. Nandgaonkar</h3>
                 <p className="hero__id-role">Python &amp; Backend Developer</p>
                 <p className="hero__id-sub">MCA Student • Immediate Joiner</p>
               </div>
-            </div>
 
-            {/* Frosted Glass Bottom Overlay Layer */}
-            <div className="hero__id-overlay">
-              <div className="hero__id-chips" aria-label="Key competencies">
-                {["Python", "Django", "DRF", "MySQL", "Java", "Git"].map(
-                  (chip) => (
-                    <span key={chip} className="badge hero__id-chip">
-                      {chip}
-                    </span>
-                  )
-                )}
-              </div>
-              <div className="hero__status-badge">
-                <span className="hero__status-dot" aria-hidden="true" />
-                <span>Open to opportunities</span>
+              {/* Translucent / Frosted Glass Bottom Overlay Layer */}
+              <div className="hero__id-overlay">
+                <div className="hero__id-chips" aria-label="Key competencies">
+                  {["Python", "Django", "DRF", "MySQL", "Java", "Git"].map(
+                    (chip) => (
+                      <span key={chip} className="badge hero__id-chip">
+                        {chip}
+                      </span>
+                    )
+                  )}
+                </div>
+                <div className="hero__status-badge">
+                  <span className="hero__status-dot" aria-hidden="true" />
+                  <span>Open to opportunities</span>
+                </div>
               </div>
             </div>
           </div>
