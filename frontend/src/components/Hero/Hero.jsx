@@ -7,6 +7,7 @@ import {
   FiChevronDown,
 } from "react-icons/fi";
 import { profile } from "../../data/config";
+import profileImg from "../../assets/profile.jpg";
 import "./Hero.css";
 
 export default function Hero({ data }) {
@@ -34,9 +35,13 @@ export default function Hero({ data }) {
             <span>Hi, I'm Shrushti Nandgaonkar</span>
           </div>
 
-          {/* Mobile Avatar (Visible only on mobile) */}
-          <div className="hero__mobile-avatar" aria-hidden="true">
-            <span>SN</span>
+          {/* Mobile Avatar (Visible only on mobile viewports) */}
+          <div className="hero__mobile-avatar">
+            <img
+              src={profileImg}
+              alt="Shrushti Manohar Nandgaonkar"
+              className="hero__avatar-img"
+            />
           </div>
 
           {/* Headline */}
@@ -124,7 +129,11 @@ export default function Hero({ data }) {
           <div className="hero__id-card">
             <div className="hero__id-card-header">
               <div className="hero__id-avatar">
-                <span>SN</span>
+                <img
+                  src={profileImg}
+                  alt="Shrushti Manohar Nandgaonkar"
+                  className="hero__avatar-img"
+                />
               </div>
               <div className="hero__id-person">
                 <h3 className="hero__id-name">Shrushti M. Nandgaonkar</h3>
@@ -153,14 +162,20 @@ export default function Hero({ data }) {
         </div>
       </div>
 
-      {/* Bottom Scroll Indicator */}
-      <button
-        className="hero__scroll-indicator"
-        onClick={() => handleScrollTo("about")}
-        aria-label="Scroll down to About section"
-      >
-        <FiChevronDown size={22} className="animate-bounce" />
-      </button>
+      {/* Prominent Bottom Scroll Indicator */}
+      <div className="hero__scroll-wrap">
+        <button
+          className="hero__scroll-indicator"
+          onClick={() => handleScrollTo("about")}
+          aria-label="Scroll down to About section"
+          id="hero-scroll-down-btn"
+        >
+          <span className="hero__scroll-pill">
+            <span className="hero__scroll-text">Explore</span>
+            <FiChevronDown size={18} className="hero__scroll-icon" />
+          </span>
+        </button>
+      </div>
     </section>
   );
 }

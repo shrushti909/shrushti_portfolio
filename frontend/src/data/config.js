@@ -21,7 +21,7 @@ export const profile = {
   whatsapp: "https://wa.me/919422333909",
   liveStoreUrl: "https://github.com/shrushti909/food_dash",
 
-  // ── Resume Document ──
+  // ── Resume & Avatar Documents ──
   resume: "/resume/Shrushti_Resume.pdf",
-  avatar: null,
+  avatar: "/profile.jpg",
 };

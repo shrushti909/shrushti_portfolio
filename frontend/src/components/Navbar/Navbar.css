@@ -37,16 +37,23 @@
 .navbar__logo-monogram {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
-  color: #ffffff;
-  border-radius: var(--radius-md);
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  font-weight: 800;
+  border: 1.5px solid var(--color-accent);
   box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
-  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  background-color: var(--color-bg-subtle);
+}
+
+.navbar__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
 }
 
 .navbar__logo-text {

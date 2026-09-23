@@ -9,6 +9,7 @@ import {
   FiMoon,
 } from "react-icons/fi";
 import { profile } from "../../data/config";
+import profileImg from "../../assets/profile.jpg";
 import "./Navbar.css";
 
 const navLinks = [
@@ -94,7 +95,11 @@ export default function Navbar({ theme, onToggleTheme }) {
           aria-label="Back to top"
         >
           <span className="navbar__logo-monogram" aria-hidden="true">
-            S
+            <img
+              src={profileImg}
+              alt="Shrushti"
+              className="navbar__logo-img"
+            />
           </span>
           <span className="navbar__logo-text">
             <strong>Shrushti</strong> Nandgaonkar

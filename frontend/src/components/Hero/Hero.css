@@ -1,12 +1,11 @@
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 68px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  padding: calc(68px + var(--space-12)) 0 var(--space-16);
+  padding: calc(68px + var(--space-4)) 0 var(--space-6);
   background-color: var(--color-bg);
-  overflow: hidden;
 }
 
 /* Background subtle ambient glows */
@@ -37,8 +36,9 @@
 .hero__inner {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
-  gap: var(--space-12);
+  gap: var(--space-10);
   align-items: center;
+  flex: 1;
 }
 
 /* ── Content (Left Column) ── */
@@ -57,7 +57,7 @@
   color: var(--color-accent);
   font-size: 0.8125rem;
   font-weight: 600;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
 .hero__pulse-dot {
@@ -71,26 +71,22 @@
 
 .hero__mobile-avatar {
   display: none;
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-accent), #4c1d95);
-  color: #ffffff;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.25rem;
+  overflow: hidden;
   margin-bottom: var(--space-4);
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+  border: 2.5px solid var(--color-accent);
 }
 
 .hero__headline {
-  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: var(--color-text);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
 .hero__headline-accent {
@@ -98,10 +94,10 @@
 }
 
 .hero__tagline {
-  font-size: 1.125rem;
+  font-size: 1.05rem;
   color: var(--color-text-secondary);
-  line-height: 1.7;
-  margin-bottom: var(--space-6);
+  line-height: 1.65;
+  margin-bottom: var(--space-5);
   max-width: 580px;
 }
 
@@ -115,8 +111,8 @@
   font-size: 0.8125rem;
   font-weight: 500;
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-8);
-  padding: 0.6rem 0.85rem;
+  margin-bottom: var(--space-5);
+  padding: 0.5rem 0.8rem;
   background-color: var(--color-bg-subtle);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -143,12 +139,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-5);
 }
 
 .hero__cta-btn {
-  padding: 0.8rem 1.4rem;
-  font-size: 0.9375rem;
+  padding: 0.75rem 1.35rem;
+  font-size: 0.9rem;
 }
 
 /* ── Socials & Location Row ── */
@@ -199,7 +195,7 @@
 
 .hero__id-card {
   width: 100%;
-  max-width: 360px;
+  max-width: 350px;
   background-color: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
@@ -215,7 +211,7 @@
 }
 
 .hero__id-card-header {
-  padding: var(--space-8) var(--space-6) var(--space-6);
+  padding: var(--space-7) var(--space-6) var(--space-5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -224,19 +220,22 @@
 }
 
 .hero__id-avatar {
-  width: 88px;
-  height: 88px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-accent) 0%, #3b0764 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #ffffff;
+  overflow: hidden;
   margin-bottom: var(--space-4);
   box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
-  border: 3px solid var(--color-card);
+  border: 3px solid var(--color-accent);
+  background: var(--color-bg-subtle);
+}
+
+.hero__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
 }
 
 .hero__id-name {
@@ -262,7 +261,7 @@
 .hero__id-overlay {
   background: var(--color-bg-subtle);
   border-top: 1px solid var(--color-border);
-  padding: var(--space-5);
+  padding: var(--space-4) var(--space-5);
   backdrop-filter: blur(8px);
 }
 
@@ -271,7 +270,7 @@
   flex-wrap: wrap;
   gap: 0.4rem;
   justify-content: center;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .hero__id-chip {
@@ -288,7 +287,7 @@
   font-weight: 600;
   color: #10b981;
   background-color: rgba(16, 185, 129, 0.1);
-  padding: 0.4rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   border-radius: var(--radius-full);
   border: 1px solid rgba(16, 185, 129, 0.25);
 }
@@ -301,22 +300,57 @@
   animation: pulse 2s infinite;
 }
 
-/* ── Bottom Scroll Indicator ── */
-.hero__scroll-indicator {
-  position: absolute;
-  bottom: var(--space-6);
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--color-text-muted);
-  cursor: pointer;
-  padding: 0.5rem;
+/* ── Prominent Bottom Scroll Indicator ── */
+.hero__scroll-wrap {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: var(--space-4);
+  z-index: 10;
+}
+
+.hero__scroll-indicator {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: color var(--transition-fast);
+  transition: transform 0.2s ease;
 }
 
 .hero__scroll-indicator:hover {
+  transform: translateY(2px);
+}
+
+.hero__scroll-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1.15rem;
+  background-color: var(--color-card);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 16px var(--color-shadow-md);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.775rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+}
+
+.hero__scroll-pill:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-light);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+}
+
+.hero__scroll-icon {
+  animation: bounce 2s infinite;
   color: var(--color-accent);
 }
 
@@ -371,7 +405,7 @@
   }
 
   .hero__headline {
-    font-size: 1.95rem;
+    font-size: 1.85rem;
   }
 
   .hero__meta-divider {
