@@ -1,12 +1,7 @@
-.education__header {
-  margin-bottom: var(--space-10);
-}
-
 .education__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-6);
-  max-width: 780px;
 }
 
 .edu-card {
@@ -15,8 +10,10 @@
   gap: var(--space-4);
   position: relative;
   overflow: hidden;
+  background-color: var(--color-card);
 }
 
+/* Top 3px gradient accent bar */
 .edu-card::before {
   content: "";
   position: absolute;
@@ -24,47 +21,57 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-accent), #c084fc);
+  background: linear-gradient(90deg, var(--color-accent), #a78bfa);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
-.edu-card__degree-badge {
-  display: inline-flex;
+.edu-card__top {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+/* 56x56 monogram box */
+.edu-card__monogram {
   width: 56px;
   height: 56px;
-  background-color: var(--color-accent-light);
+  background: var(--color-accent-light);
   color: var(--color-accent);
+  border: 1.5px solid rgba(124, 58, 237, 0.25);
   border-radius: var(--radius-md);
-  font-size: var(--text-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  flex-shrink: 0;
 }
 
 .edu-card__body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 0.25rem;
   flex: 1;
 }
 
 .edu-card__full-degree {
-  font-size: var(--text-base);
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-text);
   line-height: 1.3;
 }
 
 .edu-card__university {
-  font-size: var(--text-sm);
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--color-accent);
 }
 
 .edu-card__location {
-  font-size: var(--text-sm);
+  font-size: 0.8125rem;
   color: var(--color-text-muted);
 }
 
@@ -79,41 +86,43 @@
 .edu-card__meta {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 0.2rem;
+}
+
+.edu-card__duration-label {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
 }
 
 .edu-card__duration {
-  font-size: var(--text-sm);
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-text);
 }
 
-.edu-card__status {
-  font-size: var(--text-xs);
-  font-weight: 500;
-  color: var(--color-success);
-}
-
-.edu-card__cgpa {
+.edu-card__score {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: var(--space-1);
+  gap: 0.2rem;
 }
 
-.edu-card__cgpa-label {
-  font-size: var(--text-xs);
+.edu-card__score-label {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
-.edu-card__cgpa-value {
-  font-size: var(--text-2xl);
+.edu-card__score-value {
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--color-accent);
-  letter-spacing: -0.02em;
   line-height: 1;
+  font-family: var(--font-mono);
 }
 
 @media (max-width: 640px) {

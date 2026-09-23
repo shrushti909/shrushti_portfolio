@@ -53,7 +53,7 @@ export default function App() {
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <main>
         <Hero data={data?.profile} />
-        <About />
+        <About data={data?.about} />
         <Skills data={data} />
         <Projects data={data} />
         <Experience data={data} />

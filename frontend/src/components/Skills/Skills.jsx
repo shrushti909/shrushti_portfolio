@@ -1,39 +1,56 @@
+import { portfolioData } from "../../data/portfolioData";
 import { useReveal } from "../../hooks/useReveal";
 import "./Skills.css";
 
 export default function Skills({ data }) {
-  const skills = data?.skills || [];
+  const skills = data?.skills || portfolioData.skills;
   const { ref } = useReveal();
 
   return (
-    <section id="skills" className="section section-alt" ref={ref} aria-labelledby="skills-title">
+    <section
+      id="skills"
+      className="section section--alt"
+      ref={ref}
+      aria-labelledby="skills-title"
+    >
       <div className="container">
-        <div className="skills__header reveal">
-          <p className="section-label">What I Work With</p>
+        {/* Section Header */}
+        <div className="section-header reveal">
+          <span className="section-label">WHAT I WORK WITH</span>
           <h2 className="section-title" id="skills-title">
             Technical Skills
           </h2>
           <p className="section-subtitle">
-            Technologies and tools I use to build backend-focused web applications.
+            A comprehensive overview of programming languages, backend
+            frameworks, databases, and engineering principles in my toolkit.
           </p>
         </div>
 
+        {/* Categories Grid */}
         <div className="skills__grid">
-          {skills.map((category, i) => (
+          {skills.map((cat, i) => (
             <div
-              key={category.category}
-              className={`card skills__card reveal`}
+              key={cat.category}
+              className="card skills__card reveal"
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               <h3 className="skills__category-title">
                 <span className="skills__category-icon" aria-hidden="true">
-                  {getCategoryIcon(category.category)}
+                  {cat.icon || getCategoryIcon(cat.category)}
                 </span>
-                {category.category}
+                <span>{cat.category}</span>
               </h3>
-              <div className="skills__badges">
-                {category.skills.map((skill) => (
-                  <span key={skill} className="badge skills__badge" role="listitem">
+              <div
+                className="skills__badges"
+                role="list"
+                aria-label={`${cat.category} skills`}
+              >
+                {cat.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="badge skills__badge"
+                    role="listitem"
+                  >
                     {skill}
                   </span>
                 ))}
@@ -48,12 +65,13 @@ export default function Skills({ data }) {
 
 function getCategoryIcon(category) {
   const icons = {
-    "Backend Development": "⚙️",
-    Frontend: "🖥️",
-    Databases: "🗄️",
+    "Backend Engineering": "⚙️",
+    "Frontend & Web": "🖥️",
+    "Databases & Storage": "🗄️",
     "CS Fundamentals": "📐",
     "Computer Science Fundamentals": "📐",
     "Developer Tools": "🛠️",
+    "Professional Soft Skills": "💡",
   };
   return icons[category] || "📦";
 }

@@ -1,8 +1,4 @@
-.projects__header {
-  margin-bottom: var(--space-8);
-}
-
-/* ── Filters ── */
+/* ── Filter Bar ── */
 .projects__filters {
   display: flex;
   flex-wrap: wrap;
@@ -10,47 +6,45 @@
   margin-bottom: var(--space-8);
 }
 
-.projects__filter-btn {
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-sm);
+.projects__filter-pill {
+  padding: 0.45rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
   font-weight: 500;
   border-radius: var(--radius-full);
   border: 1.5px solid var(--color-border);
   color: var(--color-text-secondary);
-  background: transparent;
+  background-color: var(--color-card);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.projects__filter-btn:hover {
+.projects__filter-pill:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
 
-.projects__filter-btn--active {
+.projects__filter-pill--active {
   background-color: var(--color-accent);
   border-color: var(--color-accent);
   color: #ffffff;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25);
 }
 
-/* ── Grid ── */
+/* ── Projects Grid ── */
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: var(--space-6);
 }
 
-/* ── Card ── */
+/* ── Project Card ── */
 .project-card {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  background-color: var(--color-card);
+  height: 100%;
 }
 
 .project-card__header {
@@ -65,26 +59,20 @@
 }
 
 .project-card__title {
-  font-size: var(--text-lg);
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: var(--space-1);
+  margin-bottom: 0.25rem;
   letter-spacing: -0.01em;
 }
 
 .project-card__subtitle {
-  font-size: var(--text-sm);
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
 }
 
-.project-card__status {
-  flex-shrink: 0;
-  text-align: right;
-  max-width: 160px;
-}
-
 .project-card__desc {
-  font-size: var(--text-sm);
+  font-size: 0.9375rem;
   color: var(--color-text-secondary);
   line-height: 1.7;
 }
@@ -92,65 +80,67 @@
 .project-card__tech {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: 0.4rem;
 }
 
-/* ── Features ── */
-.project-card__features {
+/* ── Key Features & Architecture Box ── */
+.project-card__features-box {
   background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-4);
-  flex: 1;
+  margin-top: auto;
 }
 
 .project-card__features-title {
-  font-size: var(--text-xs);
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-text-muted);
+  color: var(--color-accent);
   margin-bottom: var(--space-3);
 }
 
 .project-card__features-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
 .project-card__feature-item {
-  font-size: var(--text-xs);
+  font-size: 0.8125rem;
   color: var(--color-text-secondary);
   display: flex;
   align-items: flex-start;
-  gap: var(--space-1);
+  gap: 0.5rem;
+  line-height: 1.45;
 }
 
-/* ── Actions ── */
+.project-card__check-icon {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Bottom Actions ── */
 .project-card__actions {
   display: flex;
   gap: var(--space-2);
   flex-wrap: wrap;
+  padding-top: var(--space-2);
 }
 
 .project-card__btn {
   flex: 1;
   justify-content: center;
-}
-
-.project-card__btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  transform: none !important;
+  font-size: 0.8125rem;
+  gap: 0.45rem;
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .projects__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-card__features-list {
     grid-template-columns: 1fr;
   }
 }

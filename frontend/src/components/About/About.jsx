@@ -1,59 +1,123 @@
+import { FiTarget, FiCheckCircle } from "react-icons/fi";
+import { portfolioData } from "../../data/portfolioData";
 import { useReveal } from "../../hooks/useReveal";
 import "./About.css";
 
-const currentFocus = [
-  "Backend Development",
-  "Python",
-  "Django",
-  "REST APIs",
-  "Java",
-  "SQL",
-  "Software Development",
-];
-
-export default function About() {
+export default function About({ data }) {
+  const about = data || portfolioData.about;
   const { ref } = useReveal();
 
+  const defaultHighlights = [
+    {
+      label: "Education",
+      value: "MCA (Pursuing)",
+      detail: "Vishwakarma Univ • 8.5 CGPA",
+    },
+    {
+      label: "Industry Experience",
+      value: "6 Months",
+      detail: "Engineer Trainee @ RapportSoft",
+    },
+    {
+      label: "Core Specialty",
+      value: "Python & Backend",
+      detail: "Django, DRF & Relational DBs",
+    },
+  ];
+
+  const highlights = about?.highlights || defaultHighlights;
+  const focusAreas = about?.focus || [
+    "Python & Django Web Framework",
+    "Django REST Framework & APIs",
+    "Relational Database Design (MySQL / SQLite)",
+    "Role-Based Access Control (RBAC)",
+    "Full-Stack Java Enterprise (JSP, JDBC)",
+    "Clean Code & SDLC Best Practices",
+  ];
+
   return (
-    <section id="about" className="section" ref={ref} aria-labelledby="about-title">
+    <section
+      id="about"
+      className="section"
+      ref={ref}
+      aria-labelledby="about-title"
+    >
       <div className="container">
-        <div className="about__header reveal">
-          <p className="section-label">About Me</p>
+        {/* Section Header */}
+        <div className="section-header reveal">
+          <span className="section-label">ABOUT ME</span>
           <h2 className="section-title" id="about-title">
             Who I Am
           </h2>
+          <p className="section-subtitle">
+            A developer dedicated to reliable backend architectures, elegant
+            data schemas, and user-focused web products.
+          </p>
         </div>
 
+        {/* 2-Column Layout */}
         <div className="about__grid">
-          {/* Bio */}
-          <div className="about__bio reveal">
-            <p className="about__para">
-              I am an MCA student with a focus on backend and web application development. I work
-              primarily with Python, Django, Django REST Framework, REST APIs, and relational
-              databases.
-            </p>
-            <p className="about__para">
-              I have practical experience building full-stack web applications and developing backend
-              functionality, authentication, database relationships, and role-based access control. I
-              also gained industry exposure as an Engineer Trainee, where I worked on a Java-based
-              web application using Java, JSP, JDBC, SQL, HTML, and CSS under the guidance of senior
-              developers.
-            </p>
-            <p className="about__para">
-              Currently, I am strengthening my skills in backend development, Java, Python,
-              databases, APIs, and software development practices while preparing for software
-              development opportunities.
-            </p>
+          {/* Left Column: Narrative & Quick Highlights Grid */}
+          <div className="about__left reveal">
+            <div className="about__narrative">
+              <p className="about__para">
+                I am an MCA student at Vishwakarma University, Pune, and an
+                Immediate Joiner with practical experience developing backend and
+                full-stack web applications using Python, Django, Django REST
+                Framework, and MySQL.
+              </p>
+              <p className="about__para">
+                During my 6-month Engineer Trainee internship at RapportSoft
+                Consulting &amp; Technology Pvt. Ltd., I collaborated with
+                senior engineers on <em>PartyConnect</em> (an EYMS clone),
+                writing modular backend features and relational database logic
+                with Java, JSP, JDBC, and SQL within an enterprise development
+                lifecycle.
+              </p>
+              <p className="about__para">
+                Whether creating a full-stack food delivery system (FoodDash) or
+                engineering role-based hiring portals (Jobify), I prioritize clean
+                object-oriented design, robust data relationships, and intuitive
+                interfaces.
+              </p>
+            </div>
+
+            {/* Quick Highlights Grid: 3 Stat Cards */}
+            <div className="about__highlights-grid" aria-label="Key highlights">
+              {highlights.map((h, i) => (
+                <div key={i} className="card about__highlight-card">
+                  <span className="about__highlight-label">{h.label}</span>
+                  <strong className="about__highlight-value">{h.value}</strong>
+                  <span className="about__highlight-detail">{h.detail}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Focus Card */}
-          <aside className="about__focus card reveal" aria-label="Current technical focus">
-            <h3 className="about__focus-title">Current Focus</h3>
+          {/* Right Column: Sticky Card (Current Focus & Core Competencies) */}
+          <aside
+            className="card about__focus-card reveal delay-100"
+            aria-label="Current Focus & Core Competencies"
+          >
+            <div className="about__focus-header">
+              <span className="about__focus-icon-wrap" aria-hidden="true">
+                <FiTarget className="about__focus-icon" size={20} />
+              </span>
+              <div>
+                <h3 className="about__focus-title">Current Focus</h3>
+                <p className="about__focus-subtitle">Core Competencies</p>
+              </div>
+            </div>
+
             <ul className="about__focus-list">
-              {currentFocus.map((item) => (
-                <li key={item} className="about__focus-item">
-                  <span className="about__focus-dot" aria-hidden="true" />
-                  {item}
+              {focusAreas.map((item, idx) => (
+                <li key={idx} className="about__focus-item">
+                  <FiCheckCircle
+                    size={16}
+                    className="about__focus-check"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>

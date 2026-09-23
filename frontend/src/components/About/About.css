@@ -1,39 +1,114 @@
-.about__header {
-  margin-bottom: var(--space-10);
-}
-
 .about__grid {
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1.25fr 0.75fr;
   gap: var(--space-10);
   align-items: start;
 }
 
-.about__bio {
+.about__left {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-8);
+}
+
+.about__narrative {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
 .about__para {
-  font-size: var(--text-base);
+  font-size: 1.05rem;
   color: var(--color-text-secondary);
   line-height: 1.8;
 }
 
-/* ── Focus Card ── */
-.about__focus {
+.about__para em {
+  font-style: normal;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ── Quick Highlights Grid (3 Stat Cards) ── */
+.about__highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.about__highlight-card {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background-color: var(--color-bg-subtle);
+  border-top: 3px solid var(--color-accent);
+}
+
+.about__highlight-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.about__highlight-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.about__highlight-detail {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* ── Sticky Focus Card ── */
+.about__focus-card {
   position: sticky;
-  top: calc(var(--navbar-height) + var(--space-6));
+  top: calc(68px + var(--space-6));
+  padding: var(--space-7);
+  background-color: var(--color-card);
+}
+
+.about__focus-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about__focus-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  flex-shrink: 0;
 }
 
 .about__focus-title {
-  font-size: var(--text-sm);
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--color-text);
+  line-height: 1.2;
+}
+
+.about__focus-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-4);
+  font-weight: 600;
 }
 
 .about__focus-list {
@@ -44,33 +119,34 @@
 
 .about__focus-item {
   display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-size: var(--text-sm);
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--color-text-secondary);
-  transition: color var(--transition-fast);
+  line-height: 1.45;
 }
 
-.about__focus-item:hover {
+.about__focus-check {
   color: var(--color-accent);
-}
-
-.about__focus-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--color-accent);
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .about__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 
-  .about__focus {
+  .about__focus-card {
     position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .about__highlights-grid {
+    grid-template-columns: 1fr;
   }
 }
